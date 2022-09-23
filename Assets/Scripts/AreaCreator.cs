@@ -7,7 +7,8 @@ public class AreaCreator : MonoBehaviour
     public int row, col;
     public int spacing;
     public GameObject obj;
-
+    public int step;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class AreaCreator : MonoBehaviour
             {
                 GameObject newObj = Instantiate(obj, this.transform);
                 newObj.transform.position = new Vector3(i * spacing, 0, j * spacing);
+                newObj.GetComponent<AV_Resizer>().band = (i) * step;
             }
         }
 

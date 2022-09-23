@@ -132,7 +132,11 @@ public class AudioSampleTooling : MonoBehaviour
     {
         m_timer = 0;
         BPMCounter();
-        onBeat();
+        if (onBeat != null)
+        {
+            onBeat();
+        }
+
     }
 
 
