@@ -16,11 +16,17 @@ namespace Tooling
             return Mathf.Exp(x * effectiveness);
         }
 
+
+
     }
 
     
-
-
+    public enum Pass
+    {
+        low,
+        mid,
+        high
+    }
 
     public enum Algorithm
     {
