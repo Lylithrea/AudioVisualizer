@@ -18,7 +18,7 @@ public class AreaCreator : MonoBehaviour
             for (int j = 0; j < col; j++)
             {
                 GameObject newObj = Instantiate(obj, this.transform);
-                newObj.transform.position = new Vector3(i * spacing, 0, j * spacing);
+                newObj.transform.localPosition = new Vector3(i * spacing, 0, j * spacing);
                 newObj.GetComponent<AV_Resizer>().band = (i) * step;
             }
         }

@@ -22,6 +22,6 @@ public class AV_Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = startPosition + this.transform.forward * AudioHelper.AudioSampler.getPitch((int)pass) * sensitivity;
+        transform.position = startPosition + this.transform.forward * AudioHelper.AudioSampler.getPitch(pass) * sensitivity;
     }
 }

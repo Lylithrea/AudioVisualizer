@@ -25,7 +25,16 @@ namespace Tooling
     {
         low,
         mid,
-        high
+        high,
+        lowlow,
+        lowmid,
+        lowhigh,
+        midlow,
+        midmid,
+        midhigh,
+        highlow,
+        highmid,
+        highhigh
     }
 
     public enum Algorithm
