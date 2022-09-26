@@ -173,7 +173,7 @@ public class AudioSampleTooling : MonoBehaviour
         if (getLowPitch() > averageVol)
         {
             lowBeatsVol.Insert(0, getLowPitch());
-            if (m_timer > 0.1f)
+            if (m_timer > 0.25f)
                 Beat();
         }
 

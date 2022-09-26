@@ -8,8 +8,7 @@ public class AV_Rotate : MonoBehaviour
     public float sensitivity;
     public float radius;
     public Tooling.Pass pass;
-    public bool useSingularPass = false;
-    public Tooling.Pass singularPass;
+    public Tooling.Axis axis;
     private Quaternion startRotation;
     private Vector3 newRotation = new Vector3(0, 0, 0);
 
@@ -24,15 +23,28 @@ public class AV_Rotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!useSingularPass)
+
+        newRotation = Tooling.AlgorithmHelper.AxisVector(axis) * Tooling.AlgorithmHelper.Exp(AudioSampleTooling.getPitch(pass), sensitivity);
+
+        switch (axis)
         {
-            newRotation = new Vector3(AudioSampleTooling.getPitch(pass) * sensitivity, 0, 0);
-            transform.localRotation = startRotation * Quaternion.Euler(newRotation);
+            case Tooling.Axis.x:
+                newRotation.y = this.transform.localRotation.y;
+                newRotation.z = this.transform.localRotation.z;
+                break;
+            case Tooling.Axis.y:
+                newRotation.x = this.transform.localRotation.x;
+                newRotation.z = this.transform.localRotation.z;
+                break;
+            case Tooling.Axis.z:
+                newRotation.x = this.transform.localRotation.x;
+                newRotation.y = this.transform.localRotation.y;
+                break;
+            default:
+                Debug.LogWarning("Incorrect axis");
+                break;
         }
-        else
-        {
-            newRotation = new Vector3(AudioSampleTooling.getPitch(singularPass) * sensitivity, 0, 0);
-            transform.localRotation = startRotation * Quaternion.Euler(newRotation);
-        }
+
+        transform.localRotation = startRotation * Quaternion.Euler(newRotation);
     }
 }
