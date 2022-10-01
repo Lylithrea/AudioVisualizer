@@ -142,6 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effect: {fileID: 7902990}
 --- !u!2083052967 &7902990 stripped
 VisualEffect:
@@ -185,6 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 1
+  isPlaying: 0
   effects:
   - {fileID: 577102380}
   - {fileID: 916668767}
@@ -193,6 +197,7 @@ MonoBehaviour:
   - {fileID: 1390991175}
   isLoop: 0
   isAwaken: 0
+  timer: 0.12
 --- !u!4 &22006626
 Transform:
   m_ObjectHideFlags: 0
@@ -301,6 +306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effect: {fileID: 309151461}
 --- !u!2083052967 &309151461 stripped
 VisualEffect:
@@ -333,6 +340,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effect: {fileID: 418566338}
 --- !u!2083052967 &418566338 stripped
 VisualEffect:
@@ -434,6 +443,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effect: {fileID: 577102381}
 --- !u!2083052967 &577102381 stripped
 VisualEffect:
@@ -466,6 +477,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effect: {fileID: 612038727}
 --- !u!2083052967 &612038727 stripped
 VisualEffect:
@@ -795,12 +808,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effects:
   - {fileID: 22006625}
   - {fileID: 1786895726}
   - {fileID: 2136920278}
   isLoop: 1
   isAwaken: 1
+  timer: 0
 --- !u!4 &730561709
 Transform:
   m_ObjectHideFlags: 0
@@ -904,6 +920,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effect: {fileID: 813650721}
 --- !u!2083052967 &813650721 stripped
 VisualEffect:
@@ -936,6 +954,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effect: {fileID: 916668768}
 --- !u!2083052967 &916668768 stripped
 VisualEffect:
@@ -1451,6 +1471,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effect: {fileID: 1140924273}
 --- !u!2083052967 &1140924273 stripped
 VisualEffect:
@@ -1761,6 +1783,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effect: {fileID: 1237941773}
 --- !u!2083052967 &1237941773 stripped
 VisualEffect:
@@ -1793,6 +1817,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effect: {fileID: 1390991176}
 --- !u!2083052967 &1390991176 stripped
 VisualEffect:
@@ -1825,6 +1851,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effect: {fileID: 1413760834}
 --- !u!2083052967 &1413760834 stripped
 VisualEffect:
@@ -1857,6 +1885,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effect: {fileID: 1570106465}
 --- !u!2083052967 &1570106465 stripped
 VisualEffect:
@@ -1969,6 +1999,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effects:
   - {fileID: 0}
 --- !u!4 &1624363377
@@ -2005,6 +2037,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effect: {fileID: 1629891645}
 --- !u!2083052967 &1629891645 stripped
 VisualEffect:
@@ -2175,6 +2209,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effect: {fileID: 1752022957}
 --- !u!2083052967 &1752022957 stripped
 VisualEffect:
@@ -2218,6 +2254,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effects:
   - {fileID: 1629891644}
   - {fileID: 309151460}
@@ -2226,6 +2264,7 @@ MonoBehaviour:
   - {fileID: 612038726}
   isLoop: 0
   isAwaken: 0
+  timer: 0
 --- !u!4 &1786895727
 Transform:
   m_ObjectHideFlags: 0
@@ -2265,6 +2304,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effect: {fileID: 1994622953}
 --- !u!2083052967 &1994622953 stripped
 VisualEffect:
@@ -2446,6 +2487,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
+  isAlwaysPlaying: 0
+  isPlaying: 0
   effects:
   - {fileID: 418566337}
   - {fileID: 1413760833}
@@ -2454,6 +2497,7 @@ MonoBehaviour:
   - {fileID: 1140924272}
   isLoop: 0
   isAwaken: 0
+  timer: 0
 --- !u!4 &2136920279
 Transform:
   m_ObjectHideFlags: 0

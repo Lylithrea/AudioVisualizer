@@ -8,6 +8,8 @@ public class Seq_Linear : SequencerFactory
     private int currentEffect = 0;
     public bool isAwaken = false;
     private bool isFirst = false;
+    public float timer;
+    private float currentTimer = 0;
 
     public void Start()
     {
@@ -15,13 +17,38 @@ public class Seq_Linear : SequencerFactory
         {
             AudioSampleTooling.onBeat += Play;
         }
-    } 
+    }
 
+
+    public void Update()
+    {
+        if (isPlaying)
+        {
+            if (currentTimer <= timer)
+            {
+                currentTimer = timer;
+                currentEffect++;
+                if (currentEffect >= effects.Count)
+                {
+                    currentEffect = 0;
+                }
+                effects[currentEffect].Play();
+            }
+            else
+            {
+                currentTimer -= Time.deltaTime;
+            }
+        }
+    }
 
     public override void Play()
     {
         base.Play();
-
+        if (isAlwaysPlaying)
+        {
+            isPlaying = true;
+            isDone = true;
+        }
         //if current effect is not done yet keep on playing that one.
         if (!effects[currentEffect].isDone)
         {
@@ -33,6 +60,7 @@ public class Seq_Linear : SequencerFactory
         {
             //set value back to false
             effects[currentEffect].isDone = false;
+            effects[currentEffect].isPlaying = false;
             currentEffect++;
             //if the current effect goes over the max we check if it should be looping
             if (currentEffect >= effects.Count)

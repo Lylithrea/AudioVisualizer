@@ -6,7 +6,8 @@ public class SequenceManager : MonoBehaviour
 {
     //[HideInInspector]
     public bool isDone = false;
-
+    public bool isAlwaysPlaying = false;
+    public bool isPlaying = false;
     public virtual void Play()
     {
 
