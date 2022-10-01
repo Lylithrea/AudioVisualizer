@@ -3,14 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class AVV_PlayVFX : MonoBehaviour
+public class AVV_PlayVFX : PlayFactory
 {
     public VisualEffect effect;
 
 
-    void Start()
+    public override void Start()
     {
-        AudioSampleTooling.onBeat += spawn;
+        //AudioSampleTooling.onBeat += spawn;
+    }
+
+    public override void Play()
+    {
+        base.Play();
+        effect.Play();
+        isDone = true;
     }
 
     void spawn()
