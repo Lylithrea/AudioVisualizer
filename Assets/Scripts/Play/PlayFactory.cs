@@ -18,6 +18,11 @@ public class PlayFactory : SequenceManager
         
     }
 
+    public override bool Test()
+    {
+        return true;
+    }
+
     public override void Play()
     {
         base.Play();

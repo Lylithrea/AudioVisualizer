@@ -15,16 +15,16 @@ public class Seq_Linear : SequencerFactory
     {
         if (isAwaken)
         {
-            AudioSampleTooling.onBeat += Play;
+            AudioSampleTooling.onBeat += blep;
         }
     }
 
 
     public void Update()
     {
-        if (isPlaying)
+/*        if (isPlaying)
         {
-            if (currentTimer <= timer)
+            if (currentTimer <= 0)
             {
                 currentTimer = timer;
                 currentEffect++;
@@ -32,7 +32,31 @@ public class Seq_Linear : SequencerFactory
                 {
                     currentEffect = 0;
                 }
+
                 effects[currentEffect].Play();
+            }
+            else
+            {
+                currentTimer -= Time.deltaTime;
+            }
+        }*/
+
+
+        if (isPlaying)
+        {
+            if (currentTimer <= 0)
+            {
+                currentTimer = timer;
+
+                if (effects[currentEffect].Test())
+                {
+                    currentEffect++;
+                }
+
+                if (currentEffect >= effects.Count)
+                {
+                    currentEffect = 0;
+                }
             }
             else
             {
@@ -41,14 +65,68 @@ public class Seq_Linear : SequencerFactory
         }
     }
 
+    public void blep()
+    {
+        Test();
+    }
+
+    //true means its done
+    public override bool Test()
+    {
+
+        if (isAlwaysPlaying)
+        {
+            isPlaying = true;
+            return true;
+        }
+
+        if (effects[currentEffect].Test())
+        {
+            currentEffect++;
+        }
+
+
+        if (currentEffect == effects.Count)
+        {
+            currentEffect = 0;
+            Debug.Log("End of sequence");
+            return true;
+        }
+
+        return false;
+
+    }
+
+
+    //loops one effect
+
+
+/*        if (effects[currentEffect].Test())
+        {
+            currentEffect++;
+            if (currentEffect >= effects.Count)
+            {
+                currentEffect = 0;
+            }
+return false;
+        }*/
+
+
+
     public override void Play()
     {
         base.Play();
+
+        //the issue is: we set this to being done after the last effect of this sequence is done in the same call
+        //so we cant set the last effect to false because it should still be playing, only when the next call it should be disabled.
+
         if (isAlwaysPlaying)
         {
             isPlaying = true;
             isDone = true;
+            return;
         }
+
         //if current effect is not done yet keep on playing that one.
         if (!effects[currentEffect].isDone)
         {
@@ -76,19 +154,24 @@ public class Seq_Linear : SequencerFactory
 
             //we play the effect
             effects[currentEffect].Play();
-            //after wards we check if its done (else it takes another beat to check if this should be done
-            if (effects[currentEffect].isDone)
+
+            //if the current effect is the last one in the row, then we reset the values and set this script to done
+            if (currentEffect == effects.Count - 1)
             {
-                //if the current effect is the last one in the row, then we reset the values and set this script to done
-                if (currentEffect == effects.Count - 1)
+                //after wards we check if its done (else it takes another beat to check if this should be done
+                if (effects[currentEffect].isDone)
                 {
+                    isPlaying = false;
                     isDone = true;
                     currentEffect = 0;
                     return;
                 }
             }
 
+
         }
+
+
 
     }
 

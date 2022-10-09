@@ -13,6 +13,13 @@ public class AVV_PlayVFX : PlayFactory
         //AudioSampleTooling.onBeat += spawn;
     }
 
+    public override bool Test()
+    {
+        effect.Play();
+        return true;
+    }
+
+
     public override void Play()
     {
         base.Play();

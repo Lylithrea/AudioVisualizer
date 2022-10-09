@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4317020967942934433
+--- !u!114 &-2263722109265300211
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23,7 +23,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_BaseEmit
+  m_Name: M_BaseEmitPurple
   m_Shader: {fileID: -6465566751694194690, guid: c1d5cd01c3cb9e84993bd207493470ec,
     type: 3}
   m_ValidKeywords:
@@ -76,7 +76,7 @@ Material:
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
     - _OpaqueCullMode: 2
-    - _Power: 2.19
+    - _Power: 2
     - _RayTracing: 0
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
@@ -109,9 +109,8 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 8.470589, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.49967965, g: 0, b: 1.929412, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OriginalColor: {r: 0, g: 0, b: 0, a: 0}
+    - _OriginalColor: {r: 0.09992452, g: 0.07489321, b: 0.16037738, a: 0}
   m_BuildTextureStacks: []

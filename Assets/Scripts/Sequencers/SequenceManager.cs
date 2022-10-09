@@ -12,4 +12,10 @@ public class SequenceManager : MonoBehaviour
     {
 
     }
+
+    public virtual bool Test()
+    {
+        return false;
+    }
+
 }

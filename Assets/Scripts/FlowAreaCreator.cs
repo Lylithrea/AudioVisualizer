@@ -13,6 +13,8 @@ public class FlowAreaCreator : MonoBehaviour
     public float riseSpeed;
     public float fallSpeed;
 
+    private Vector3 initialScale;
+
     private List<GameObject> objs = new List<GameObject>();
 
 
@@ -31,6 +33,7 @@ public class FlowAreaCreator : MonoBehaviour
             }
         }
         AudioHelper.AudioSampler.onBeat += UpdateObjects;
+        initialScale = obj.transform.localScale;
     }
 
     public void UpdateObjects()
@@ -43,7 +46,7 @@ public class FlowAreaCreator : MonoBehaviour
 
         for(int i = 0; i < objs.Count; i++)
         {
-            objs[i].GetComponent<FlowHelper>().SetVariable(new Vector3(1, intensity * ( 1- (i * (falloff / objs.Count))), 1));
+            objs[i].GetComponent<FlowHelper>().SetVariable(new Vector3(initialScale.x,initialScale.y +  intensity * ( 1- (i * (falloff / objs.Count))), initialScale.z));
 
             yield return new WaitForSecondsRealtime(0.05f);
         }
