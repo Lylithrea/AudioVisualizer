@@ -5,11 +5,12 @@ using UnityEngine;
 public class Seq_Linear : SequencerFactory
 {
     public bool isLoop = false;
-    private int currentEffect = 0;
+
     public bool isAwaken = false;
     private bool isFirst = false;
     public float timer;
     private float currentTimer = 0;
+
 
     public void Start()
     {
@@ -80,22 +81,46 @@ public class Seq_Linear : SequencerFactory
             return true;
         }
 
+
+        //check if the last effect was always playing, if so, then disable it
+        if (currentEffect == 0)
+        {
+            if (effects[effects.Count - 1].isAlwaysPlaying)
+            {
+                resetLastEffect(effects.Count - 1);
+            }
+        }
+        else if (effects[currentEffect - 1].isAlwaysPlaying)
+        {
+            resetLastEffect(currentEffect - 1);
+        }
+
+        //check if the next one is done, if so increase the effect count
         if (effects[currentEffect].Test())
         {
             currentEffect++;
         }
 
-
+        //check if we reached the end
         if (currentEffect == effects.Count)
         {
             currentEffect = 0;
-            Debug.Log("End of sequence");
             return true;
         }
 
         return false;
 
     }
+
+    void resetLastEffect(int effectCount)
+    {
+        effects[effectCount].isPlaying = false;
+        if (!effects[effectCount].doNotReset)
+        {
+            effects[effectCount].currentEffect = 0;
+        }
+    }
+
 
 
     //loops one effect

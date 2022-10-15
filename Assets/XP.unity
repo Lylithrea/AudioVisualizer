@@ -1991,6 +1991,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3970449919720703136, guid: 7c4d2562a4df8324db0a63c19518a667,
+        type: 3}
+      propertyPath: isUsingLasp
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3970449919720703137, guid: 7c4d2562a4df8324db0a63c19518a667,
         type: 3}
       propertyPath: m_Name

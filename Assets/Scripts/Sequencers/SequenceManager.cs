@@ -8,6 +8,8 @@ public class SequenceManager : MonoBehaviour
     public bool isDone = false;
     public bool isAlwaysPlaying = false;
     public bool isPlaying = false;
+    public bool doNotReset = false;
+    public int currentEffect = 0;
     public virtual void Play()
     {
 
