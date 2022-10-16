@@ -23,25 +23,6 @@ public class Seq_Linear : SequencerFactory
 
     public void Update()
     {
-/*        if (isPlaying)
-        {
-            if (currentTimer <= 0)
-            {
-                currentTimer = timer;
-                currentEffect++;
-                if (currentEffect >= effects.Count)
-                {
-                    currentEffect = 0;
-                }
-
-                effects[currentEffect].Play();
-            }
-            else
-            {
-                currentTimer -= Time.deltaTime;
-            }
-        }*/
-
 
         if (isPlaying)
         {
@@ -56,7 +37,15 @@ public class Seq_Linear : SequencerFactory
 
                 if (currentEffect >= effects.Count)
                 {
-                    currentEffect = 0;
+                    if (isLoop)
+                    {
+                        currentEffect = 0;
+                    }
+                    else
+                    {
+                        isPlaying = false;
+                        currentEffect = 0;
+                    }
                 }
             }
             else
@@ -75,7 +64,7 @@ public class Seq_Linear : SequencerFactory
     public override bool Test()
     {
 
-        if (isAlwaysPlaying)
+        if (playFullSequence)
         {
             isPlaying = true;
             return true;
@@ -85,12 +74,12 @@ public class Seq_Linear : SequencerFactory
         //check if the last effect was always playing, if so, then disable it
         if (currentEffect == 0)
         {
-            if (effects[effects.Count - 1].isAlwaysPlaying)
+            if (effects[effects.Count - 1].playFullSequence)
             {
                 resetLastEffect(effects.Count - 1);
             }
         }
-        else if (effects[currentEffect - 1].isAlwaysPlaying)
+        else if (effects[currentEffect - 1].playFullSequence)
         {
             resetLastEffect(currentEffect - 1);
         }
@@ -115,7 +104,7 @@ public class Seq_Linear : SequencerFactory
     void resetLastEffect(int effectCount)
     {
         effects[effectCount].isPlaying = false;
-        if (!effects[effectCount].doNotReset)
+        if (!effects[effectCount].doNotReset || effects[effectCount].playFullSequence)
         {
             effects[effectCount].currentEffect = 0;
         }
@@ -138,14 +127,14 @@ return false;
 
 
 
-    public override void Play()
+   /* public override void Play()
     {
         base.Play();
 
         //the issue is: we set this to being done after the last effect of this sequence is done in the same call
         //so we cant set the last effect to false because it should still be playing, only when the next call it should be disabled.
 
-        if (isAlwaysPlaying)
+        if (playFullSequence)
         {
             isPlaying = true;
             isDone = true;
@@ -198,7 +187,7 @@ return false;
 
 
 
-    }
+    }*/
 
 
 }

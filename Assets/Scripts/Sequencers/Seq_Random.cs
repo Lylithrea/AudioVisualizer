@@ -20,7 +20,7 @@ public class Seq_Random : SequencerFactory
         }
     }
 
-
+/*
     public override void Play()
     {
         base.Play();
@@ -45,7 +45,7 @@ public class Seq_Random : SequencerFactory
             {
                 if (availableEffects.Count <= 0)
                 {
-                    isDone = true;
+                    //isDone = true;
                     return;
                 }
                 currentEffect = Random.Range(0, availableEffects.Count);
@@ -54,6 +54,6 @@ public class Seq_Random : SequencerFactory
             }
 
         }
-    }
+    }*/
 
 }

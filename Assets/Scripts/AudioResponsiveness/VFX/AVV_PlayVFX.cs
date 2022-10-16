@@ -24,7 +24,7 @@ public class AVV_PlayVFX : PlayFactory
     {
         base.Play();
         effect.Play();
-        isDone = true;
+        //isDone = true;
     }
 
     void spawn()

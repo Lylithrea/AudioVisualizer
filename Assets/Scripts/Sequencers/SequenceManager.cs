@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class SequenceManager : MonoBehaviour
 {
-    //[HideInInspector]
-    public bool isDone = false;
-    public bool isAlwaysPlaying = false;
+    public bool playFullSequence = false;
     public bool isPlaying = false;
     public bool doNotReset = false;
     public int currentEffect = 0;
