@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Seq_Linear : SequencerFactory
 {
-    public bool isLoop = false;
 
+    [Tooltip("Enable this for the top sequencer, this is the god of all sequences")]
     public bool isAwaken = false;
-    private bool isFirst = false;
+
+    public bool isLoop = false;
     public float timer;
     private float currentTimer = 0;
 
@@ -23,26 +24,6 @@ public class Seq_Linear : SequencerFactory
 
     public void Update()
     {
-/*        if (isPlaying)
-        {
-            if (currentTimer <= 0)
-            {
-                currentTimer = timer;
-                currentEffect++;
-                if (currentEffect >= effects.Count)
-                {
-                    currentEffect = 0;
-                }
-
-                effects[currentEffect].Play();
-            }
-            else
-            {
-                currentTimer -= Time.deltaTime;
-            }
-        }*/
-
-
         if (isPlaying)
         {
             if (currentTimer <= 0)
@@ -120,6 +101,21 @@ public class Seq_Linear : SequencerFactory
             effects[effectCount].currentEffect = 0;
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

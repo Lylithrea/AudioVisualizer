@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 422.46323, g: 305.15222, b: 217.13245, a: 1}
+  m_IndirectSpecularColor: {r: 436.65488, g: 325.5763, b: 253.9772, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -281,8 +281,8 @@ MonoBehaviour:
   - {fileID: 1518577817}
   - {fileID: 93292675}
   - {fileID: 855122612}
-  isLoop: 0
   isAwaken: 0
+  isLoop: 0
   timer: 0.1
 --- !u!1 &37161030
 GameObject:
@@ -2622,7 +2622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDone: 0
-  isAlwaysPlaying: 1
+  isAlwaysPlaying: 0
   isPlaying: 0
   doNotReset: 1
   currentEffect: 0
@@ -2631,8 +2631,8 @@ MonoBehaviour:
   - {fileID: 641608388}
   - {fileID: 959322844}
   - {fileID: 576313792}
-  isLoop: 0
   isAwaken: 0
+  isLoop: 0
   timer: 0.1
 --- !u!4 &558086419 stripped
 Transform:
@@ -3034,8 +3034,8 @@ MonoBehaviour:
   - {fileID: 557985254}
   - {fileID: 1691266705}
   - {fileID: 15318782}
-  isLoop: 0
   isAwaken: 1
+  isLoop: 0
   timer: 0.18
 --- !u!4 &717975695
 Transform:
@@ -6010,8 +6010,8 @@ MonoBehaviour:
   - {fileID: 1252501200}
   - {fileID: 1526480193}
   - {fileID: 494729497}
-  isLoop: 0
   isAwaken: 0
+  isLoop: 0
   timer: 0.1
 --- !u!1 &1732056229
 GameObject:
