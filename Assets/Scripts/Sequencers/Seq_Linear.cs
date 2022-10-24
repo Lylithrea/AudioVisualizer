@@ -107,9 +107,11 @@ public class Seq_Linear : SequencerFactory
         effects[effectCount].isPlaying = false;
         if (!effects[effectCount].doNotReset || effects[effectCount].playFullSequence)
         {
-            effects[effectCount].currentEffect = 0;
+            effects[effectCount].ResetEffect();
         }
+
     }
+
 
 
 
@@ -131,79 +133,79 @@ public class Seq_Linear : SequencerFactory
     //loops one effect
 
 
-/*        if (effects[currentEffect].Test())
-        {
-            currentEffect++;
-            if (currentEffect >= effects.Count)
+    /*        if (effects[currentEffect].Test())
             {
-                currentEffect = 0;
-            }
-return false;
-        }*/
-
-
-
-   /* public override void Play()
-    {
-        base.Play();
-
-        //the issue is: we set this to being done after the last effect of this sequence is done in the same call
-        //so we cant set the last effect to false because it should still be playing, only when the next call it should be disabled.
-
-        if (playFullSequence)
-        {
-            isPlaying = true;
-            isDone = true;
-            return;
-        }
-
-        //if current effect is not done yet keep on playing that one.
-        if (!effects[currentEffect].isDone)
-        {
-            effects[currentEffect].Play();
-        }
-
-        //if that one is done, we go to the next effect
-        else
-        {
-            //set value back to false
-            effects[currentEffect].isDone = false;
-            effects[currentEffect].isPlaying = false;
-            currentEffect++;
-            //if the current effect goes over the max we check if it should be looping
-            if (currentEffect >= effects.Count)
-            {
-                //if it does loop we reset the value back to 0
-                //if not then it never even is suppose to get here
-                if (isLoop)
+                currentEffect++;
+                if (currentEffect >= effects.Count)
                 {
                     currentEffect = 0;
                 }
-
-            }
-
-            //we play the effect
-            effects[currentEffect].Play();
-
-            //if the current effect is the last one in the row, then we reset the values and set this script to done
-            if (currentEffect == effects.Count - 1)
-            {
-                //after wards we check if its done (else it takes another beat to check if this should be done
-                if (effects[currentEffect].isDone)
-                {
-                    isPlaying = false;
-                    isDone = true;
-                    currentEffect = 0;
-                    return;
-                }
-            }
-
-
-        }
+    return false;
+            }*/
 
 
 
-    }*/
+    /* public override void Play()
+     {
+         base.Play();
+
+         //the issue is: we set this to being done after the last effect of this sequence is done in the same call
+         //so we cant set the last effect to false because it should still be playing, only when the next call it should be disabled.
+
+         if (playFullSequence)
+         {
+             isPlaying = true;
+             isDone = true;
+             return;
+         }
+
+         //if current effect is not done yet keep on playing that one.
+         if (!effects[currentEffect].isDone)
+         {
+             effects[currentEffect].Play();
+         }
+
+         //if that one is done, we go to the next effect
+         else
+         {
+             //set value back to false
+             effects[currentEffect].isDone = false;
+             effects[currentEffect].isPlaying = false;
+             currentEffect++;
+             //if the current effect goes over the max we check if it should be looping
+             if (currentEffect >= effects.Count)
+             {
+                 //if it does loop we reset the value back to 0
+                 //if not then it never even is suppose to get here
+                 if (isLoop)
+                 {
+                     currentEffect = 0;
+                 }
+
+             }
+
+             //we play the effect
+             effects[currentEffect].Play();
+
+             //if the current effect is the last one in the row, then we reset the values and set this script to done
+             if (currentEffect == effects.Count - 1)
+             {
+                 //after wards we check if its done (else it takes another beat to check if this should be done
+                 if (effects[currentEffect].isDone)
+                 {
+                     isPlaying = false;
+                     isDone = true;
+                     currentEffect = 0;
+                     return;
+                 }
+             }
+
+
+         }
+
+
+
+     }*/
 
 
 }

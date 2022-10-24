@@ -18,6 +18,7 @@ public class Seq_Random : SequencerFactory
     public void Start()
     {
         availableEffects.AddRange(effects);
+        currentEffect = Random.Range(0, effects.Count);
         if (isAwaken)
         {
             AudioSampleTooling.onBeat += Play;
@@ -27,7 +28,7 @@ public class Seq_Random : SequencerFactory
 
     public void Update()
     {
-        if (isPlaying)
+/*        if (isPlaying)
         {
             if (currentTimer <= 0)
             {
@@ -47,7 +48,7 @@ public class Seq_Random : SequencerFactory
             {
                 currentTimer -= Time.deltaTime;
             }
-        }
+        }*/
     }
 
     public void blep()
@@ -80,16 +81,28 @@ public class Seq_Random : SequencerFactory
         }
 
         //check if the next one is done, if so increase the effect count
-        if (effects[currentEffect].Test())
+        if (isTrulyRandom)
         {
-            currentEffect++;
-        }
+            if (effects[currentEffect].Test())
+            {
+                currentEffect = Random.Range(0, effects.Count);
+                return true;
+            }
 
-        //check if we reached the end
-        if (currentEffect == effects.Count)
+        }
+        else
         {
-            currentEffect = 0;
-            return true;
+            if (availableEffects[currentEffect].Test())
+            {
+                availableEffects.RemoveAt(currentEffect);
+                if (availableEffects.Count == 0)
+                {
+                    availableEffects.AddRange(effects);
+                    currentEffect = Random.Range(0, availableEffects.Count);
+                    return true;
+                }
+                currentEffect = Random.Range(0, availableEffects.Count);
+            }
         }
 
         return false;
@@ -101,8 +114,17 @@ public class Seq_Random : SequencerFactory
         effects[effectCount].isPlaying = false;
         if (!effects[effectCount].doNotReset)
         {
-            effects[effectCount].currentEffect = 0;
+            effects[effectCount].ResetEffect();
         }
+    }
+
+
+
+
+    public override void ResetEffect()
+    {
+        availableEffects.AddRange(effects);
+        currentEffect = Random.Range(0, effects.Count);
     }
 
 
@@ -110,43 +132,41 @@ public class Seq_Random : SequencerFactory
 
 
 
+    /*
 
-
-/*
-
-    public override void Play()
-    {
-        base.Play();
-        if (!isDone)
+        public override void Play()
         {
-            if (isTrulyRandom)
+            base.Play();
+            if (!isDone)
             {
-                currentEffect = Random.Range(0, effects.Count);
-                effects[currentEffect].Play();
-            }
-            else if (isLoop)
-            {
-                if (availableEffects.Count <= 0)
+                if (isTrulyRandom)
                 {
-                    availableEffects.AddRange(effects);
+                    currentEffect = Random.Range(0, effects.Count);
+                    effects[currentEffect].Play();
                 }
-                currentEffect = Random.Range(0, availableEffects.Count);
-                availableEffects[currentEffect].Play();
-                availableEffects.RemoveAt(currentEffect);
-            }
-            else
-            {
-                if (availableEffects.Count <= 0)
+                else if (isLoop)
                 {
-                    //isDone = true;
-                    return;
+                    if (availableEffects.Count <= 0)
+                    {
+                        availableEffects.AddRange(effects);
+                    }
+                    currentEffect = Random.Range(0, availableEffects.Count);
+                    availableEffects[currentEffect].Play();
+                    availableEffects.RemoveAt(currentEffect);
                 }
-                currentEffect = Random.Range(0, availableEffects.Count);
-                availableEffects[currentEffect].Play();
-                availableEffects.RemoveAt(currentEffect);
-            }
+                else
+                {
+                    if (availableEffects.Count <= 0)
+                    {
+                        //isDone = true;
+                        return;
+                    }
+                    currentEffect = Random.Range(0, availableEffects.Count);
+                    availableEffects[currentEffect].Play();
+                    availableEffects.RemoveAt(currentEffect);
+                }
 
-        }
-    }*/
+            }
+        }*/
 
 }

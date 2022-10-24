@@ -232,6 +232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 15318781}
+  - component: {fileID: 15318783}
   - component: {fileID: 15318782}
   m_Layer: 0
   m_Name: GameObject (3)
@@ -266,13 +267,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15318780}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec3254311147ea14ab97ee9af9472b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDone: 0
-  isAlwaysPlaying: 1
+  playFullSequence: 0
   isPlaying: 0
   doNotReset: 0
   currentEffect: 0
@@ -283,6 +283,31 @@ MonoBehaviour:
   - {fileID: 855122612}
   isAwaken: 0
   isLoop: 0
+  timer: 0.1
+--- !u!114 &15318783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15318780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d9c91b8c40526842a1f4c18de60a753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playFullSequence: 0
+  isPlaying: 0
+  doNotReset: 0
+  currentEffect: 0
+  effects:
+  - {fileID: 391177063}
+  - {fileID: 1518577817}
+  - {fileID: 93292675}
+  - {fileID: 855122612}
+  isLoop: 0
+  isTrulyRandom: 0
+  isAwaken: 0
   timer: 0.1
 --- !u!1 &37161030
 GameObject:
@@ -2621,8 +2646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3254311147ea14ab97ee9af9472b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDone: 0
-  isAlwaysPlaying: 0
+  playFullSequence: 0
   isPlaying: 0
   doNotReset: 1
   currentEffect: 0
@@ -3025,15 +3049,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3254311147ea14ab97ee9af9472b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDone: 0
-  isAlwaysPlaying: 0
+  playFullSequence: 0
   isPlaying: 0
   doNotReset: 0
   currentEffect: 0
   effects:
   - {fileID: 557985254}
   - {fileID: 1691266705}
-  - {fileID: 15318782}
+  - {fileID: 15318783}
   isAwaken: 1
   isLoop: 0
   timer: 0.18
@@ -6000,8 +6023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3254311147ea14ab97ee9af9472b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDone: 0
-  isAlwaysPlaying: 1
+  playFullSequence: 1
   isPlaying: 0
   doNotReset: 0
   currentEffect: 0

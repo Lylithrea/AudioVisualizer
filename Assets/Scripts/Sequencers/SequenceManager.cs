@@ -18,4 +18,9 @@ public class SequenceManager : MonoBehaviour
         return false;
     }
 
+    public virtual void ResetEffect()
+    {
+        currentEffect = 0;
+    }
+
 }
