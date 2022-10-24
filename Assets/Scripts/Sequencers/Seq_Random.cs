@@ -59,7 +59,7 @@ public class Seq_Random : SequencerFactory
     public override bool Test()
     {
 
-        if (isAlwaysPlaying)
+        if (playFullSequence)
         {
             isPlaying = true;
             return true;
@@ -69,12 +69,12 @@ public class Seq_Random : SequencerFactory
         //check if the last effect was always playing, if so, then disable it
         if (currentEffect == 0)
         {
-            if (effects[effects.Count - 1].isAlwaysPlaying)
+            if (effects[effects.Count - 1].playFullSequence)
             {
                 resetLastEffect(effects.Count - 1);
             }
         }
-        else if (effects[currentEffect - 1].isAlwaysPlaying)
+        else if (effects[currentEffect - 1].playFullSequence)
         {
             resetLastEffect(currentEffect - 1);
         }
@@ -112,7 +112,7 @@ public class Seq_Random : SequencerFactory
 
 
 
-
+/*
 
     public override void Play()
     {
@@ -138,7 +138,7 @@ public class Seq_Random : SequencerFactory
             {
                 if (availableEffects.Count <= 0)
                 {
-                    isDone = true;
+                    //isDone = true;
                     return;
                 }
                 currentEffect = Random.Range(0, availableEffects.Count);
@@ -147,6 +147,6 @@ public class Seq_Random : SequencerFactory
             }
 
         }
-    }
+    }*/
 
 }

@@ -26,7 +26,7 @@ public class PlayFactory : SequenceManager
     public override void Play()
     {
         base.Play();
-        isDone = true;
+        //isDone = true;
     }
 
 }
