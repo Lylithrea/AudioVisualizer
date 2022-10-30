@@ -14,7 +14,6 @@ public class Seq_Random : SequencerFactory
     public float timer;
     private float currentTimer = 0;
 
-
     public void Start()
     {
         availableEffects.AddRange(effects);
@@ -28,27 +27,46 @@ public class Seq_Random : SequencerFactory
 
     public void Update()
     {
-/*        if (isPlaying)
+        if (isPlaying)
         {
             if (currentTimer <= 0)
             {
                 currentTimer = timer;
 
-                if (effects[currentEffect].Test())
+                if (isTrulyRandom)
                 {
-                    currentEffect++;
+                    if (effects[currentEffect].Test())
+                    {
+                        currentEffect = Random.Range(0, effects.Count);
+                    }
                 }
 
-                if (currentEffect >= effects.Count)
+                else if (availableEffects[currentEffect].Test())
                 {
-                    currentEffect = 0;
+                    availableEffects.RemoveAt(currentEffect);
+                    currentEffect = Random.Range(0, availableEffects.Count);
+
+                    if (availableEffects.Count == 0)
+                    {
+                        availableEffects.AddRange(effects);
+                        currentEffect = Random.Range(0, availableEffects.Count);
+
+                        if (!isLoop)
+                        {
+                            isPlaying = false;
+                            return;
+                        }
+                    }
                 }
+
+
             }
             else
             {
                 currentTimer -= Time.deltaTime;
             }
-        }*/
+
+        }
     }
 
     public void blep()
@@ -123,6 +141,7 @@ public class Seq_Random : SequencerFactory
 
     public override void ResetEffect()
     {
+        availableEffects.Clear();
         availableEffects.AddRange(effects);
         currentEffect = Random.Range(0, effects.Count);
     }
